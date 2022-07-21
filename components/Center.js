@@ -31,20 +31,25 @@ const Center = () => {
 
   //여기 복습하기
   useEffect(() => {
+    // if (spotifyApi.getAccessToken()) {
     spotifyApi
       .getPlaylist(playlistId)
       .then((data) => {
         setPlaylist(data.body);
       })
       .catch((err) => console.log('Something went wrong!', err));
+    // }
   }, [spotifyApi, playlistId]);
-
-  console.log(playlist, ' playlist??');
+  // console.log(playlistId, 'playLListsId');
+  // console.log(playlist, 'playlist?.images?.[0]?');
 
   return (
     <div className="flex-grow">
       <header className="absolute top-5 right-8">
-        <div className="flex items-center bg-gray-300 space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2">
+        <div
+          className="flex items-center bg-black space-x-3 
+        opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white"
+        >
           <img
             className="rounded-full w-10 h-10"
             src={session?.user?.image}
@@ -56,7 +61,7 @@ const Center = () => {
       </header>
       <section
         className={`flex items-end space-x-7 bg-gradient-to-b to-black 
-        ${color} h-80 text-white padding-8  w-full`}
+        ${color} h-80 text-white p-8`}
       >
         <img
           className="h-44 w-44 shadow-2xl"
@@ -70,9 +75,7 @@ const Center = () => {
           </h1>
         </div>
       </section>
-      <div>
-        <Songs />
-      </div>
+      <div>{/* <Songs /> */}</div>
     </div>
   );
 };
