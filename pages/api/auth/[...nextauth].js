@@ -67,7 +67,7 @@ export default NextAuth({
     },
 
     async session({ session, token }) {
-      console.log(session, ' session??');
+      // console.log(session, ' session??');
       session.user.accessToken = token.accessToken; //this is the part which the user can see. but the token, the user can't see
       session.user.refreshToken = token.refreshToken;
       session.user.username = token.username;
