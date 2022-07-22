@@ -126,6 +126,8 @@ export async function middleware(req) {
   const token = await getToken({ req, secret: process.env.JWT_SECRET });
   const { pathname } = req.nextUrl;
 
+  console.log(token, 'tokne??');
+
   // ALlow the request if the following is true:
   // 1) it's a request to next-auth session
   // 2) the token exists
