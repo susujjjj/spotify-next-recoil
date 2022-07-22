@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { ChevronDownIcon } from '@heroicons/react/outline';
 import { shuffle } from 'lodash';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -19,6 +19,7 @@ const colors = [
 
 const Center = () => {
   const { data: session } = useSession();
+
   const spotifyApi = useSpotify();
   const [color, setColor] = useState(null);
   const playlistId = useRecoilValue(playlistIdState);
@@ -49,6 +50,7 @@ const Center = () => {
         <div
           className="flex items-center bg-black space-x-3 
         opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2 text-white"
+          onClick={signOut}
         >
           <img
             className="rounded-full w-10 h-10"
