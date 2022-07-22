@@ -3,10 +3,8 @@ import { playlistState } from '../atoms/playlistAtom';
 import Song from './Song';
 
 function Songs() {
-  //const playlist = useRecoilState(playlistState);
   const playlist = useRecoilValue(playlistState);
-
-  console.log(playlist, '++++++++++++++++++playlist');
+  // console.log(playlist, '++++++++++++++++++playlist');
 
   return (
     <div className="px-8 flex flex-col space-y-1 pb-28 text-white">
